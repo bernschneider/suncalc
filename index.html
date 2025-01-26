@@ -18,7 +18,7 @@
     </footer>
     <script>
         var sunrisePos = SunCalc.getPosition(Date.now(), 53.3, 10.1);
-        var times = SunCalc.getTimesDate.now(), 53.3, 10.1);
+        var times = SunCalc.getTimes(Date.now(), 53.3, 10.1);
         var noon = times.solarNoon;
         var noonPos = SunCalc.getPosition(noon, 53.3, 10.1);
         console.log(noonPos.altitude * 180 / Math.PI);
