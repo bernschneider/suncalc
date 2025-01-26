@@ -11,11 +11,16 @@
         <h1>SunCalc</h1>
     </header>
     <main>
-        <p>Welcome to SunCalc!</p>
+        <p></p>
     </main>
     <footer>
-        <p>&copy; 2025 SunCalc</p>
+        <p>&copy; 2023 SunCalc</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        var SunCalc = require('./suncalc');
+        var sunrisePos = SunCalc.getPosition(Date.now(), 53.3, 10.1);
+        console.log(sunrisePos.azimuth * 180 / Math.PI);
+        h = sunrisePos.altitude * 180 / Math.PI;
+        document.body.main.innerHTML = `<p>Sun altitude: ${h} degrees</p>`;
+    </script>
 </body>
-</html>
