@@ -21,6 +21,6 @@
         console.log(sunrisePos.altitude * 180 / Math.PI);
         h = sunrisePos.altitude * 180 / Math.PI;
         var result = document.getElementById('altitude');
-        result.innerHTML = `<p>Sun altitude: ${h} degrees</p>`;
+        result.innerHTML = `<p>Sun altitude: ${h.toFixed(2)} degrees</p>`;
     </script>
 </body>
