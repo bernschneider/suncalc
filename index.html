@@ -10,7 +10,7 @@
     <header>
         <h1>SunCalc</h1>
     </header>
-    <main>
+    <main id="altitude">
         <p></p>
     </main>
     <footer>
@@ -20,7 +20,7 @@
         var sunrisePos = SunCalc.getPosition(Date.now(), 53.3, 10.1);
         console.log(sunrisePos.altitude * 180 / Math.PI);
         h = sunrisePos.altitude * 180 / Math.PI;
-        var result = document.getElementById('main');
+        var result = document.getElementById('altitude');
         result.innerHTML = `<p>Sun altitude: ${h} degrees</p>`;
     </script>
 </body>
