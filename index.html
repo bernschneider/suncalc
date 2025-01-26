@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./suncalc.js"></script>
     <title>SunCalc</title>
-</head>
+</headp>
 
 <body>
     <main id="data">
         <p></p>
     </main>
     <script>
-        var times = SunCalc.getTimes(Date.now(), 53.3, 10.1, 0);
+        const urlParams = new URLSearchParams(window.location.search);
+        const lat = urlParams.get('lat');
+        const lon = urlParams.get('lon');
+        var times = SunCalc.getTimes(Date.now(), lat, lon, 0);
         var rise = times.sunrise; var rise_str = rise.getHours() + ':' + rise.getMinutes(); //hh:mm
         var set = times.sunset; var set_str = set.getHours() + ':' + set.getMinutes(); //hh:mm
         var noon = times.solarNoon;
-        var noonPos = SunCalc.getPosition(noon, 53.3, 10.1);
+        var noonPos = SunCalc.getPosition(noon, lat, lon);
         var hnoon = noonPos.altitude * 180 / Math.PI;
-        var nowPos = SunCalc.getPosition(Date.now(), 53.3, 10.1);
+        var nowPos = SunCalc.getPosition(Date.now(), lat, lon);
         var h = nowPos.altitude * 180 / Math.PI;
         var result = document.getElementById('data');
         result.innerHTML = `<p>Now: ${h.toFixed(1)}°</p><p>Noon: ${hnoon.toFixed(1)}°</p><p>Rise: ${rise_str}</p><p>Set: ${set_str}</p>`;
