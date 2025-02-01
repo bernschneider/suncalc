@@ -17,8 +17,8 @@
         const lat = urlParams.get('lat');
         const lon = urlParams.get('lon');
         var times = SunCalc.getTimes(Date.now(), lat, lon, 0);
-        var rise = times.sunrise; var rise_str = rise.getHours() + ':' + rise.getMinutes(); //hh:mm
-        var set = times.sunset; var set_str = set.getHours() + ':' + set.getMinutes(); //hh:mm
+        var rise = times.sunrise; var rise_str = rise.getHours() + ':' + rise.getMinutes().toString().padStart(2, '0'); //hh:mm
+        var set = times.sunset; var set_str = set.getHours() + ':' + set.getMinutes().toString().padStart(2, '0'); //hh:mm
         var noon = times.solarNoon;
         var noonPos = SunCalc.getPosition(noon, lat, lon);
         var hnoon = noonPos.altitude * 180 / Math.PI;
